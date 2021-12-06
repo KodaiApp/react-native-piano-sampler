@@ -54,8 +54,8 @@ class PianoSamplerModule(reactContext: ReactApplicationContext) : ReactContextBa
 
     private fun copySF2IfNecessary() {
         if (sf2file.exists() && sf2file.length() > 0) return
-        Okio.source(context.assets.open(SF2_FILE_NAME)).use { a ->
-            Okio.buffer(Okio.sink(sf2file)).use { b ->
+        context.assets.open(SF2_FILE_NAME).source().use { a ->
+            sf2file.sink().buffer().use { b ->
                 b.writeAll(a)
             }
         }
