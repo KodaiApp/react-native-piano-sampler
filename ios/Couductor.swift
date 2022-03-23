@@ -66,7 +66,7 @@ class Conductor {
     }
 
     func useSound(_ sound: String) {
-        let soundsFolder = Bundle.main.bundleURL.appendingPathComponent("UprightPianoKW-SFZ-20190703").path
+        let soundsFolder = Bundle.main.bundleURL.appendingPathComponent(sound).path
         sampler1.unloadAllSamples()
         sampler1.betterLoadUsingSfzFile(folderPath: soundsFolder, sfzFileName: sound + ".sfz")
     }
