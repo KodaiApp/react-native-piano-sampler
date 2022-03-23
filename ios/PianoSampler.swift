@@ -34,10 +34,10 @@ class PianoSampler: NSObject {
         conductor.setVolume(volume: volume)
     }
     
-    @objc
-    func prepare() {
+    @objc(prepare:)
+    func prepare(_ soundfont: String) {
         conductor.allNotesOff()
-        conductor.useSound("UprightPianoKW-20190703")
+        conductor.useSound(soundfont)
         print("prepared")
     }
 
